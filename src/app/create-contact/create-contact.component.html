@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-5 mx-auto shadow bg-light">
+            <div>
+                <h6 class="display-6">Add Contact App</h6>
+                <input type="text" class="form-control mb-2" placeholder="Full Name" [(ngModel)]="full_name">
+                <input type="text" class="form-control mb-2" placeholder="Email" [(ngModel)]="email">
+                <input type="text" class="form-control mb-2" placeholder="Phone Number" [(ngModel)]="phone_no">
+                <input type="text" class="form-control mb-2" placeholder="Address" [(ngModel)]="address">
+                <input type="text" class="form-control mb-2" placeholder="Relationship" [(ngModel)]="relationship">
+                <button class="btn btn-outline-success mb-2" (click)="createContact()">Create Contact</button>
+                <button class="btn btn-outline-success mb-2" routerLink="/contacts">View Contact</button>
+                <p>{{message}}</p>
+            </div>
+        </div>
+    </div>
+</div>

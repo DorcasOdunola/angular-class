@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'physical-angular';
+
+  public name = "SQI";
+  age:number = 1000;
 }

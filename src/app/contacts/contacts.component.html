@@ -1,0 +1,55 @@
+<div class="shadow">
+    <div class="" *ngIf="contactArray.length != 0">
+        <div class="shadow">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Name</th>
+                        <th>Email & Phone Number</th>
+                        <th>Address</th>
+                        <th>Relationship</th>
+                        <th>Delete</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let id = index; let contact of contactArray">
+                        <td>{{ id + 1 }}</td>
+                        <td>{{ contact.full_name }}</td>
+                        <td> {{ contact.email }} | {{ contact.phone_no }}</td>
+                        <td> {{ contact.address }}</td>
+                        <td> {{ contact.relationship }}</td>
+                        <td><button class="btn btn-outline-danger" (click)="delete(id)">Delete</button></td>
+                        <td><button class="btn btn-outline-success" (click)="edit(id, contact)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <input type="text" class="form-control mb-2" placeholder="Full Name" [(ngModel)]="full_name">
+            <input type="text" class="form-control mb-2" placeholder="Email" [(ngModel)]="email">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="update()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
