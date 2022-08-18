@@ -13,5 +13,16 @@
                 <p>{{message}}</p>
             </div>
         </div>
+        <div class="col-7">
+            <div *ngFor="let id = index; let contact of contactArray">
+                <div class="row shadow pb-3">
+                    <div class="col-3">{{contact.full_name}}</div>
+                    <div class="col-3"><button class="btn btn-primary" routerLink="details/{{id}}">View</button></div>
+                    <div class="col-3"><button class="btn btn-success">Edit</button></div>
+                    <div class="col-3"><button class="btn btn-primary">Delete</button></div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>

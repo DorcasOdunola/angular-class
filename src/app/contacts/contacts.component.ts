@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+// import { FastField } from 'formik';
 
 @Component({
   selector: 'app-contacts',
@@ -7,19 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public actRoute: ActivatedRoute) { }
 
   public contactArray:any = [];
   public full_name = "";
   public email = "";
   public id = "";
+  public contact:any = {};
+  // public checked = false;
 
   ngOnInit(): void {
-    this.contactArray = JSON.parse(localStorage.getItem('contacts') !);
-    if (!this.contactArray) {
-      this.contactArray = [];
-    }
-    // this.contactArray = JSON.parse(localStorage['contacts']);
+    let id = this.actRoute.snapshot.params['id'];
+    let contactArray = JSON.parse(localStorage.getItem('contacts') !);
+    this.contact = contactArray.find((contact: any, index: any) => index == id);
+    console.log(this.contact);
+
   }
 
   edit (id: any, contact: any) {
@@ -29,7 +33,7 @@ export class ContactsComponent implements OnInit {
   }
 
   update () {
-    this.contactArray.map((contact: any, index: any)  => {
+    this.contactArray.map((contact: object, index: any)  => {
       if (index == this.id) {
        this.contactArray[index].full_name = this.full_name;
        this.contactArray[index].email = this.email;
