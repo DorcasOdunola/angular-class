@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-7 mx-auto shadow">
+            <div class="row">
+                <div class="col-5 bg-info p-5" style="background-color: orange !important;">
+                    <div>
+                        <h5>Contact App</h5>
+                        <p>Welocme to Our Contact app. Our contact app provides you with the oppourtunity to add your contact and specify your relationship with them and make note of every of your experiences with. Thanks!</p>
+        
+                        <i>We hope you will enjoy using this app</i>
+                    </div>
+                </div>
+                <div class="col-7 p-5">
+                    <form [formGroup]="userForm" (ngSubmit)="signUp()">
+                        <h6 class="display-6">SIGN UP</h6>
+                        <input type="text" class="form-control mb-2" placeholder="Full Name" formControlName="full_name">
+                        <input type="text" class="form-control mb-2" placeholder="Phone Number" formControlName="phone_no">
+                        <input type="text" class="form-control mb-2" placeholder="Address" formControlName="address">
+                        <input type="text" class="form-control mb-2" placeholder="Email" formControlName="email">
+                        <input type="password" class="form-control mb-2" placeholder="Password" formControlName="password">
+                        <button class="btn btn-outline-success mb-2 w-100">Sign Up</button>
+                        <i>Already have an account: <a class="nav-link" routerLink="/signin">Sign In</a></i>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
