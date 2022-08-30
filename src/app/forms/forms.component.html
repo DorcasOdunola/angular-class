@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="shadow p-3">
+                <form #usersForm="ngForm">
+                    <h6 class="display-6">VALIDATION OF TEMPLATE DRIVEN FORMS</h6>
+                    <input type="text" class="form-control mb-2" name="first_name" placeholder="First Name" [(ngModel)]="first_name" 
+                    minlength="5"
+                    maxlength="10"
+                    required
+                    #fname="ngModel" [class.is-valid]="fname.valid && fname.touched" [class.is-invalid]="fname.invalid && fname.touched">
+
+                    <div *ngIf="fname.invalid && fname.dirty">
+                        <span class="text-danger" *ngIf="fname.errors?.['minlength']">
+                            Minimium length is 5
+                        </span>
+
+                        <span class="text-danger" *ngIf="fname.errors?.['required']">
+                            Field can not be empty
+                        </span>
+                    </div>
+
+                    <input type="text" class="form-control mb-2" name="last_name" placeholder="Last Name" [(ngModel)]="last_name">
+
+                    <input type="text" class="form-control mb-2" name="email" placeholder="Email" [(ngModel)]="email">
+
+                    <input appPhone type="number" class="form-control mb-2" name="phone_no" placeholder="Phone Number" [(ngModel)]="phone_no" #pNo="ngModel"
+                    [class.is-valid]="pNo.valid && pNo.touched" [class.is-invalid]="pNo.invalid && pNo.touched" >
+
+                    <div *ngIf="pNo.invalid && pNo.dirty">
+                        <span class="text-danger" *ngIf="pNo.errors?.['noCountryCode']">
+                           Please specify country code
+                        </span>
+                    </div>
+
+                    <button class="btn btn-info w-100" [disabled]="usersForm.invalid">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="shadow p-3">
+                <form [formGroup]="userForm">
+                    <h6 class="display-6">VALIDATION OF REACTIVE FORMS</h6>
+                    <input type="text" class="form-control mb-2" placeholder="First Name" formControlName="first_name" 
+                    [class.is-valid]="userForm.get('first_name').valid"
+                    [class.is-invalid]="userForm.get('first_name').invalid"
+                    >
+                    <div *ngIf="userForm.get('first_name').invalid && userForm.get('first_name').dirty">
+                        <span class="text-danger" *ngIf="userForm.get('first_name').errors['required']">
+                           Input can not be empty
+                        </span>
+
+                        <span class="text-danger" *ngIf="userForm.get('first_name').errors['minlength']">
+                            Minimium length is 5
+                         </span>
+                    </div>
+                    <input type="text" class="form-control mb-2" placeholder="Last Name" formControlName="last_name">
+                    <input type="text" class="form-control mb-2" placeholder="Phone Number" formControlName="phone_no"
+                    [class.is-valid]="userForm.get('phone_no').valid"
+                    [class.is-invalid]="userForm.get('phone_no').invalid">
+                    <input type="text" class="form-control mb-2" placeholder="Email" formControlName="email">
+                    <button class="btn btn-outline-success mb-2 w-100">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

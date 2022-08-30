@@ -20,6 +20,7 @@ export class SignupComponent implements OnInit {
     password: ['']
   })
   public usersArray:any = [];
+  public message = "";
 
   ngOnInit(): void {
     if (this.contactService.getUsers()) {
@@ -30,10 +31,16 @@ export class SignupComponent implements OnInit {
   } 
 
   signUp () {
-   this.usersArray.push(this.userForm.value);
-   localStorage.setItem("usersDetails", JSON.stringify(this.usersArray));
-   localStorage.setItem("contact_user", JSON.stringify(this.userForm.value));
-   this.router.navigate(['/contacts']);
+    let checkExist = this.usersArray.findIndex((contact: any) => contact.email == this.userForm.value['email']);
+    console.log(checkExist);
+    if (checkExist == -1) {
+      this.usersArray.push(this.userForm.value);
+      localStorage.setItem("usersDetails", JSON.stringify(this.usersArray));
+      localStorage.setItem("contact_user", JSON.stringify(this.userForm.value));
+      this.router.navigate(['/contacts']);
+    } else {
+      this.message = "This email has already been used. Thanks"
+    }
   }
 
 }

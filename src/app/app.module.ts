@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactsComponent } from './contacts/contacts.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
+import { FormsComponent } from './forms/forms.component';
+import { PhoneDirective } from './directives/phone.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { SigninComponent } from './signin/signin.component';
     CreateContactComponent,
     ContactsComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    FormsComponent,
+    PhoneDirective
   ],
   imports: [
     BrowserModule,
