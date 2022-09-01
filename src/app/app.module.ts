@@ -11,6 +11,9 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { FormsComponent } from './forms/forms.component';
 import { PhoneDirective } from './directives/phone.directive';
+import { ApiComponent } from './api/api.component';
+import { HttpClientModule } from "@angular/common/http";
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +24,16 @@ import { PhoneDirective } from './directives/phone.directive';
     SignupComponent,
     SigninComponent,
     FormsComponent,
-    PhoneDirective
+    PhoneDirective,
+    ApiComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]

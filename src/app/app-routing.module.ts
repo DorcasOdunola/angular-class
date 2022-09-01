@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ApiComponent } from './api/api.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { CreateContactComponent } from './create-contact/create-contact.component';
 import { FormsComponent } from './forms/forms.component';
@@ -7,6 +8,7 @@ import { ContactGuard } from './guards/contact.guard';
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "home", pathMatch: "full"},
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent}, 
   {path: 'signin', component: SigninComponent},
   {path: 'forms', component: FormsComponent},
+  {path: 'api', component: ApiComponent},
+  {path: 'api/:name', component: UserProfileComponent},
   {path: 'contacts', children: [
     {path: '', component: CreateContactComponent},
     {path: 'details/:id', component: ContactsComponent}

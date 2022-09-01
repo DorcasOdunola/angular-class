@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-5 mx-auto">
+            <div class="shadow text-center">
+                <div class="d-flex justify-content-center">
+                    <img [src]="user.avatar_url" alt="" style="width: 300px; height: 300px; border-radius: 100%;">
+                </div>
+                <p>{{user.name}}</p>
+                <h6>Public Repos <span class="badge bg-secondary">{{user.public_repos}}</span></h6>
+                <a [href]="user.blog">Blog</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="row">
+        <div class="col-2" *ngFor="let user of usersArray">
+            <div class="shadow p-2" style="cursor: pointer;"  routerLink="{{user.login}}">
+                <img [src]="user.avatar_url" alt="" style="width: 150px; height: 150px">
+                <p class="text-muted fw-bold text-center" style="font-size: 20px;">{{user.login}}</p>
+            </div>
+        </div>
+    </div>
+</div>
