@@ -13,7 +13,7 @@ export class ContactGuard implements CanActivate {
       let user = JSON.parse(localStorage.getItem("contact_user") !);
       console.log(user);
       if (!user) {
-        this.router.navigate(["/sigin"]);
+        this.router.navigate(["/signin"]);
       }
       return true;
   }

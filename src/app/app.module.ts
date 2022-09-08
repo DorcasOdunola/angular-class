@@ -14,6 +14,13 @@ import { PhoneDirective } from './directives/phone.directive';
 import { ApiComponent } from './api/api.component';
 import { HttpClientModule } from "@angular/common/http";
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ChangecasePipe } from './pipes/changecase.pipe';
+import { ContactfilterPipe } from './pipes/contactfilter.pipe';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { Sibling1Component } from './sibling1/sibling1.component';
+import { Sibling2Component } from './sibling2/sibling2.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,14 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     FormsComponent,
     PhoneDirective,
     ApiComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ChangecasePipe,
+    ContactfilterPipe,
+    ParentComponent,
+    ChildComponent,
+    NotFoundComponent,
+    Sibling1Component,
+    Sibling2Component
   ],
   imports: [
     BrowserModule,

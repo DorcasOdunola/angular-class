@@ -1,1 +1,16 @@
 <h1 class="display-4 text-center">WELCOME HOME</h1>
+<div class="row bg-dark text-light">
+    <div class="col-6 mx-auto shadow">
+        <p>{{ "money" | uppercase }}</p>
+        <p>{{ "MONEY" | lowercase }}</p>
+        <!-- currency, currency-symbol, currency-symbo-narrow -->
+        <p>{{ 1200.50 | currency:'NGN':"symbol-narrow"}}</p>
+        <p>{{date | date}}</p>
+        <p>{{date | date:'shortTime'}}</p>
+        <p>{{date | date:'d/M/Y'}}</p>
+        <p>{{ "WELCOME" | slice:0:3}}</p>
+        <div *ngFor="let name of arrayNames">
+            <p class="text-center text-muted display-6">{{name | changecase}}</p>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container bg-dark text-light">
     <div class="row">
         <div class="col-5 mx-auto shadow bg-light">
             <button class="btn btn-info btn-sm">LogOut</button>
@@ -15,7 +15,8 @@
             </div>
         </div>
         <div class="col-7">
-            <div *ngFor="let id = index; let contact of contactArray">
+            <input type="text" class="form-control my-3" placeholder="search here...." [(ngModel)]="searchContact">
+            <div *ngFor="let id = index; let contact of contactArray | contactfilter:searchContact">
                 <div class="row shadow pb-3">
                     <div class="col-3">{{contact.full_name}}</div>
                     <div class="col-3"><button class="btn btn-primary" routerLink="details/{{id}}">View</button></div>

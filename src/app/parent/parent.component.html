@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-7 mx-auto shadow">
+            <div>
+                <h6 class="text-center text-success display-5">I'm the Parent</h6>
+                <input type="text" class="form-control" placeholder="Value here....." [(ngModel)]="msgToChild">
+                <p>Response From Child: {{msgFromChild}}</p>
+            </div>
+            <hr>
+            <div>
+                <app-child [sendToChild]="msgToChild" (sendEvent)="receiveEmit($event)"></app-child>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-6 shadow">
+                <app-sibling1></app-sibling1>        
+            </div>
+            <div class="col-6 shadow">
+                <app-sibling2></app-sibling2>
+            </div>
+
+        </div>
+    </div>
+    
+
+</div>

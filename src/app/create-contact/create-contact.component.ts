@@ -16,6 +16,7 @@ export class CreateContactComponent implements OnInit {
   public relationship = "";
   public contactArray:any = [];
   public message = "";
+  public searchContact = "";
   // public contactArray:Array<Object> = [];
 
   ngOnInit(): void {

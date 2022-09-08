@@ -9,6 +9,9 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
+  public date = new Date();
+  public arrayNames = ["odunola", "okikiola", "omotayo", "daniel", "peace", "tikristi", "asura", "Miriam"]
+
   ngOnInit(): void {
   }
 
