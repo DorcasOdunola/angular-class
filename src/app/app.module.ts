@@ -21,6 +21,11 @@ import { ChildComponent } from './child/child.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { Sibling1Component } from './sibling1/sibling1.component';
 import { Sibling2Component } from './sibling2/sibling2.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialComponent } from './material/material.component';
+
+import { MaterialModuleModule } from "./material-module/material-module.module";
+import { BottomsheetComponent } from './bottomsheet/bottomsheet.component';
 
 @NgModule({
   declarations: [
@@ -40,14 +45,18 @@ import { Sibling2Component } from './sibling2/sibling2.component';
     ChildComponent,
     NotFoundComponent,
     Sibling1Component,
-    Sibling2Component
+    Sibling2Component,
+    MaterialComponent,
+    BottomsheetComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,    
+    HttpClientModule,
+    BrowserAnimationsModule, 
+    MaterialModuleModule   
   ],
   providers: [],
   bootstrap: [AppComponent]

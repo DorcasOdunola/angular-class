@@ -6,6 +6,7 @@ import { CreateContactComponent } from './create-contact/create-contact.componen
 import { FormsComponent } from './forms/forms.component';
 import { ContactGuard } from './guards/contact.guard';
 import { HomeComponent } from './home/home.component';
+import { MaterialComponent } from './material/material.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ParentComponent } from './parent/parent.component';
 import { SigninComponent } from './signin/signin.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'api', component: ApiComponent},
   {path: 'api/:name', component: UserProfileComponent},
   {path: 'parent', component: ParentComponent},
+  {path: 'material', component: MaterialComponent},
   {path: 'contacts', children: [
     {path: '', component: CreateContactComponent},
     {path: 'details/:id', component: ContactsComponent}
