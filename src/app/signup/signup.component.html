@@ -14,7 +14,8 @@
                     <form [formGroup]="userForm" (ngSubmit)="signUp()">
                         <h6 class="display-6">SIGN UP</h6>
                         <span class="text-center text-danger">{{message}}</span>
-                        <input type="text" class="form-control mb-2" placeholder="Full Name" formControlName="full_name">
+                        <input type="text" class="form-control mb-2" placeholder="first Name" formControlName="first_name">
+                        <input type="text" class="form-control mb-2" placeholder="Last Name" formControlName="last_name">
                         <input type="text" class="form-control mb-2" placeholder="Phone Number" formControlName="phone_no">
                         <input type="text" class="form-control mb-2" placeholder="Address" formControlName="address">
                         <input type="text" class="form-control mb-2" placeholder="Email" formControlName="email">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ContactService } from '../services/contact.service';
 
@@ -10,10 +11,11 @@ import { ContactService } from '../services/contact.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(public formBuilder: FormBuilder, public router: Router, public contactService: ContactService) { }
+  constructor(public formBuilder: FormBuilder, public router: Router, public contactService: ContactService, public snackbar: MatSnackBar) { }
 
   public userForm:any = this.formBuilder.group({
-    full_name: [''],
+    first_name: [''],
+    last_name: [''],
     phone_no: [''],
     address: [''],
     email: [''],
@@ -31,16 +33,27 @@ export class SignupComponent implements OnInit {
   } 
 
   signUp () {
-    let checkExist = this.usersArray.findIndex((contact: any) => contact.email == this.userForm.value['email']);
-    console.log(checkExist);
-    if (checkExist == -1) {
-      this.usersArray.push(this.userForm.value);
-      localStorage.setItem("usersDetails", JSON.stringify(this.usersArray));
-      localStorage.setItem("contact_user", JSON.stringify(this.userForm.value));
-      this.router.navigate(['/contacts']);
-    } else {
-      this.message = "This email has already been used. Thanks"
-    }
+    console.log(this.userForm.value);
+    this.contactService.signupUser(this.userForm.value).subscribe(data => {
+      if (data.success == true) {
+        this.snackbar.open("Success", "Cancel")
+      }
+      console.log(data);
+    })
+    // for backend
+
+
+    /// For localstorage
+    // let checkExist = this.usersArray.findIndex((contact: any) => contact.email == this.userForm.value['email']);
+    // console.log(checkExist);
+    // if (checkExist == -1) {
+    //   this.usersArray.push(this.userForm.value);
+    //   localStorage.setItem("usersDetails", JSON.stringify(this.usersArray));
+    //   localStorage.setItem("contact_user", JSON.stringify(this.userForm.value));
+    //   this.router.navigate(['/contacts']);
+    // } else {
+    //   this.message = "This email has already been used. Thanks"
+    // }
   }
 
 }
