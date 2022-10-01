@@ -12,7 +12,7 @@ import { SigninComponent } from './signin/signin.component';
 import { FormsComponent } from './forms/forms.component';
 import { PhoneDirective } from './directives/phone.directive';
 import { ApiComponent } from './api/api.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ChangecasePipe } from './pipes/changecase.pipe';
 import { ContactfilterPipe } from './pipes/contactfilter.pipe';
@@ -37,6 +37,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { HttpsInterceptor } from './https.interceptor';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,9 @@ import { MatMenuModule } from '@angular/material/menu';
     BrowserAnimationsModule, 
     MaterialModuleModule, LayoutModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule   
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: HttpsInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

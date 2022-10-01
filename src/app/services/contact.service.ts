@@ -9,7 +9,11 @@ import { environment } from 'src/environments/environment';
 export class ContactService {
 
   public itemDetails = new BehaviorSubject({});
+  //physical class
   public baseUrl = environment.baseUrl;
+
+  //virtual class
+  public base_url = environment.baseUrlVir
   constructor(public httpClient: HttpClient) { }
 
   public getUsers () {
@@ -21,11 +25,27 @@ export class ContactService {
     return JSON.parse(localStorage.getItem("contacts") !);
   }
 
+  public signUp (userObj: any) {
+    return this.httpClient.post<any>(`${this.base_url}/createUser.php`, userObj)
+  }
+
+  public login (userObj: any) {
+    return this.httpClient.post<any>(`${this.base_url}/login.php`, userObj)
+  }
+
+
+  // For physical
   public signupUser (userObj:any) {
     return this.httpClient.post<any>(`${this.baseUrl}/signup.php`, userObj);
   }
 
   public loginUser (userObj:any) {
-    return this.httpClient.post<any>("http://localhost/php-class/OOP/.php", userObj)
+    return this.httpClient.post<any>(`${this.baseUrl}/signin.php`, userObj)
   }
+
+  public dashboard () {
+    return this.httpClient.get<any>(`${this.baseUrl}/dashboard.php`);
+  }
+
+
 }

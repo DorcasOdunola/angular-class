@@ -6,7 +6,8 @@ import { HttpStatusCode } from "@angular/common/http";
 
 export const environment = {
   production: false,
-  baseUrl: "http://localhost/php-class/OOP"
+  baseUrl: "http://localhost/php-class/OOP",
+  baseUrlVir: "http://localhost/virtual_php_class/OOP"
 };
 
 /*

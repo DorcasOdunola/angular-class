@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,5 +30,11 @@ export class DashboardComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, public contactService: ContactService) {}
+
+  ngOnInit(): void {
+      this.contactService.dashboard().subscribe(data => {
+        console.log(data);
+      })
+  }
 }
