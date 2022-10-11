@@ -22,21 +22,24 @@ export class SigninComponent implements OnInit {
   
   login() {
     //For online class
-    // let userObj = {email: this.email, password: this.password};
-    // this.contactService.login(userObj).subscribe(data => {
-    //   console.log(data);
-    // })
+    let userObj = {email: this.email, password: this.password};
+    this.contactService.login(userObj).subscribe(data => {
+      if (data.success == true) {
+        localStorage['users_jwt'] = data.jwt;
+        this.router.navigate(['/dashboard'])
+      }
+    })
 
 
     // for physical class
-    let userObj = {email: this.email, password: this.password};
-    this.contactService.loginUser(userObj).subscribe(data => {
-      console.log(data);
-      if (data.success == true) {
-        localStorage['users_jwt'] = data.jwt;
-        this.router.navigate(['/dashboard']);
-      }
-    })
+    // let userObj = {email: this.email, password: this.password};
+    // this.contactService.loginUser(userObj).subscribe(data => {
+    //   console.log(data);
+    //   if (data.success == true) {
+    //     localStorage['users_jwt'] = data.jwt;
+    //     this.router.navigate(['/dashboard']);
+    //   }
+    // })
 
     // let users = this.userArray.find((user:any) => user.email == this.email && user.password == this.password);
     // if (users) {

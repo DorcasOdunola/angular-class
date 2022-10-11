@@ -1,4 +1,7 @@
 <div class="grid-container">
+  <input class="form-control mb-2" type="text" placeholder="todo_title">
+  <input class="form-control mb-2" type="text" placeholder="todo_desc">
+  <button class="btn btn-success w-100" (click)="getTodo()">ADD</button>
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">

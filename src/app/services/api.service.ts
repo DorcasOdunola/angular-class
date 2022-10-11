@@ -16,4 +16,9 @@ export class ApiService {
     return this.httpClient.get(`https://api.github.com/users/${login}`);
   }
 
+  public addTodo (obj: any) {
+    return this.httpClient.post<any>("http://127.0.0.1:8000/api/todo/create", obj)
+  }
+
+
 }

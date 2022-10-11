@@ -14,11 +14,10 @@ export class HttpsInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let users_jwt = localStorage['users_jwt'];
-    if (users_jwt){
-      return next.handle(request.clone({setHeaders: {authorization: `Bearer ${users_jwt}`}}))
+    if (users_jwt) {
+      return next.handle(request.clone({setHeaders: {authorization: `Bearer ${users_jwt}`}}));
     } else {
       return next.handle(request);
     }
-    
   }
 }

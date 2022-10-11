@@ -33,6 +33,10 @@ export class ContactService {
     return this.httpClient.post<any>(`${this.base_url}/login.php`, userObj)
   }
 
+  public user_dashboard () {
+    return this.httpClient.get<any>(`${this.base_url}/dashboard.php`);
+  }
+
 
   // For physical
   public signupUser (userObj:any) {

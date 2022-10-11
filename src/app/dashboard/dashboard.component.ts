@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { ContactService } from '../services/contact.service';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,11 +31,25 @@ export class DashboardComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver, public contactService: ContactService) {}
+  constructor(private breakpointObserver: BreakpointObserver, public contactService: ContactService, public apiService: ApiService) {}
 
   ngOnInit(): void {
-      this.contactService.dashboard().subscribe(data => {
-        console.log(data);
-      })
+    // for virtual class
+    this.contactService.user_dashboard().subscribe(data => {
+      console.log(data);
+    })
+
+
+
+    // for physcial class
+      // this.contactService.dashboard().subscribe(data => {
+      //   console.log(data);
+      // })
+  }
+
+  public getTodo () {
+    // this.apiService.todo().subscribe(data => {
+    //   console.log(data);
+    // })
   }
 }

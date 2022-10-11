@@ -34,22 +34,22 @@ export class SignupComponent implements OnInit {
 
   signUp () {
     //for online class
-    // this.contactService.signUp(this.userForm.value).subscribe(data => {
-    //   if (data.success == true){
-    //     this.router.navigate(['/signin']);
-    //   } else {
-    //     alert("Unsucessfull Registration");
-    //   }
-    // })
-
-    // for physical class
-    this.contactService.signupUser(this.userForm.value).subscribe(data => {
-      if (data.success == true) {
+    this.contactService.signUp(this.userForm.value).subscribe(data => {
+      if (data.success == true){
         this.router.navigate(['/signin']);
       } else {
-        this.snackbar.open("Failed", "Cancel")
+        alert("Unsucessfull Registration");
       }
     })
+
+    // for physical class
+    // this.contactService.signupUser(this.userForm.value).subscribe(data => {
+    //   if (data.success == true) {
+    //     this.router.navigate(['/signin']);
+    //   } else {
+    //     this.snackbar.open("Failed", "Cancel")
+    //   }
+    // })
     // for backend
 
 
